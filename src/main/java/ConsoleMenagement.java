@@ -13,7 +13,6 @@ public class ConsoleMenagement {
     String displayNote = "press 4 to display note";
 
     public void manage() throws IOException, InterruptedException {
-        new ProcessBuilder("CMD", "/C", "cls").inheritIO().start().waitFor();
         System.out.println(getWelcomeWords());
         System.out.println(addNote);
         System.out.println(modifyNote);

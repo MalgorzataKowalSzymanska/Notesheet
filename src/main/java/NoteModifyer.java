@@ -5,37 +5,40 @@ import java.io.InputStreamReader;
 public class NoteModifyer {
     String noteName;
     String noteValue;
+    NoteCreator creator= new NoteCreator();
 
     public NoteModifyer() {
     }
 
 
-    public void modify() throws IOException {
-        System.out.println("Which note do you want modify? ");
-        //TODO check if exist
-        modifyNoteName();
-        modifyNoteValue();
-
-       // NoteReader oldreader = new NoteReader(noteName);
-        //oldreader.read();
-        NoteSaver saver = new NoteSaver();
-        saver.writeToFile(new Note(noteName, noteValue));
+    public void modify() {
+        try {
+            System.out.println("Which note do you want modify? ");
+            BufferedReader readerName = new BufferedReader(new InputStreamReader(System.in));
+            noteName = readerName.readLine();
+         //   readerName.close();
+            if (creator.existNote(noteName)) {
+                modifyNoteValue();
+                NoteSaver saver = new NoteSaver();
+                saver.writeToFile(new Note(noteName, noteValue));
+            } else System.out.println("Note "+noteName+" does not exist");
+        } catch (IOException ex) {
+            System.out.println("Can't modify note cause:  " + ex.getMessage());
+            ex.printStackTrace();
+        }
     }
 
     public String modifyNoteName() throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        noteName = reader.readLine();
-        reader.close();
+        System.out.println("Write new name for note: ");
         return noteName;
     }
 
     public String modifyNoteValue() throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        noteValue = reader.readLine();
-        reader.close();
+        System.out.println("Write the new value for note: ");
+        BufferedReader readerValue = new BufferedReader(new InputStreamReader(System.in));
+        noteValue = readerValue.readLine();
+        //readerValue.close();
         return noteValue;
 
     }
-    //modify name metoda
-    //modify value metoda
 }
