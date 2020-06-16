@@ -6,19 +6,17 @@ public class NoteCreator {
     Note newNote;
     NoteCollections noteCollections = new NoteCollections();
 
-    public Note createNote() throws IOException {
+    public Note  createNote() throws IOException {
         System.out.println("Write a note");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String noteValues = reader.readLine();
         System.out.println("write name of note ");
         String noteName = reader.readLine();
         if (existNote(noteName)) {
-            System.out.println("Note with that name exist. Do you want modify note? press: y (yes), n (no to dismiss draft) or c (to write new name of note):");
+            System.out.println("Note with that name exist. Do you want modify existing note? press: y (yes), n (no to dismiss draft) or c (to write new name of note):");
             //* TODO check if modify existing note*/
             switch (reader.readLine().charAt(0)) {
                 case 'y':
-                    NoteModifyer noteModifyer = new NoteModifyer();
-                    noteValues = noteModifyer.modifyNoteValue();
                     break;
                 case 'n':
                     NoteReader noteReader = new NoteReader(noteName);
