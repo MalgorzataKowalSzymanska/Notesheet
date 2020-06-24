@@ -1,3 +1,5 @@
+package com.SpringBootApplication;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,7 +23,7 @@ public class NoteModifyer {
                 modifyNoteValue();
                 NoteSaver saver = new NoteSaver();
                 saver.writeToFile(new Note(noteName, noteValue));
-            } else System.out.println("Note "+noteName+" does not exist");
+            } else System.out.println("com.SpringBootApplication.Note "+noteName+" does not exist");
         } catch (IOException ex) {
             System.out.println("Can't modify note cause:  " + ex.getMessage());
             ex.printStackTrace();

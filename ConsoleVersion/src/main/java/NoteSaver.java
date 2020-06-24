@@ -1,7 +1,7 @@
-import java.io.BufferedReader;
+package com.SpringBootApplication;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class NoteSaver {
     NoteCollections noteCollections = new NoteCollections();
@@ -23,7 +23,7 @@ public class NoteSaver {
 
     // chech if the name exist
     //if exist ask about modification
-    //else create new Note
+    //else create new com.SpringBootApplication.Note
 
 
 }

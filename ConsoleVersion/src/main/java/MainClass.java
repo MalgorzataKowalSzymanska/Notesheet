@@ -1,3 +1,5 @@
+package com.SpringBootApplication;
+
 import java.io.IOException;
 
 public class MainClass {
