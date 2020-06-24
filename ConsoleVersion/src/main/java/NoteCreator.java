@@ -1,3 +1,5 @@
+package com.SpringBootApplication;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +15,7 @@ public class NoteCreator {
         System.out.println("write name of note ");
         String noteName = reader.readLine();
         if (existNote(noteName)) {
-            System.out.println("Note with that name exist. Do you want modify existing note? press: y (yes), n (no to dismiss draft) or c (to write new name of note):");
+            System.out.println("com.SpringBootApplication.Note with that name exist. Do you want modify existing note? press: y (yes), n (no to dismiss draft) or c (to write new name of note):");
             //* TODO check if modify existing note*/
             switch (reader.readLine().charAt(0)) {
                 case 'y':

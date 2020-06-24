@@ -1,3 +1,5 @@
+package com.SpringBootApplication;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -18,7 +20,7 @@ public class NoteReader {
             Scanner reader = new Scanner(file);
 
             if (file.exists()) {
-                stringBuilder.append("-------Note-------\n");
+                stringBuilder.append("-------com.SpringBootApplication.Note-------\n");
                 while (reader.hasNext()) {
                     stringBuilder.append(reader.next()+" ");
                 }

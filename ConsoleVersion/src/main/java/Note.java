@@ -1,3 +1,5 @@
+package com.SpringBootApplication;
+
 public class Note {
 
 

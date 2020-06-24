@@ -1,3 +1,5 @@
+package com.SpringBootApplication;
+
 public class InicialisationBlock {
     String localisation = "D:\\mavenProject\\noteSheet\\notes\\";
 
