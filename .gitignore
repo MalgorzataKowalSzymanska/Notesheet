@@ -4,11 +4,12 @@
 /dist
 /tmp
 /out-tsc
+target/
 # Only exists if Bazel was run
 /bazel-out
 
 # dependencies
-/node_modules
+node_modules/
 
 # profiling files
 chrome-profiler-events*.json
@@ -47,3 +48,6 @@ Thumbs.db
 
 #report
 report.20200630.141654.16344.0.001.json
+
+#file iml
+*.iml
