@@ -44,3 +44,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#report
+report.20200630.141654.16344.0.001.json
