@@ -12,15 +12,19 @@ import {HeaderComponent} from './navigation/header/header.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {WelcomeComponent } from './welcome/welcome.component';
-import { CreateNoteComponent } from './create-note/create-note.component';
-import {MatTableModule} from '@angular/material/table';
+import {WelcomeComponent} from './welcome/welcome.component';
+import {CreateNoteComponent} from './create-note/create-note.component';
+import { MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoteContentComponent } from './note-content/note-content.component';
+import { ModifyNoteComponent } from './modify-note/modify-note.component';
+
 
 export const routingConfig: Routes = [
   {path: 'home', component: WelcomeComponent},
-  {path: 'note/display', component: NoteListComponent},
-  {path: 'note/add', component: CreateNoteComponent},
+  {path: 'list-note', component: NoteListComponent},
+  {path: 'add-note', component: CreateNoteComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
@@ -31,7 +35,9 @@ export const routingConfig: Routes = [
     NoteListComponent,
     HeaderComponent,
     WelcomeComponent,
-    CreateNoteComponent
+    CreateNoteComponent,
+    NoteContentComponent,
+    ModifyNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -43,14 +49,12 @@ export const routingConfig: Routes = [
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    BrowserAnimationsModule,
-    MatTableModule
- ],
+    MatTableModule,
+    MatCardModule,
+    BrowserAnimationsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  MatSidenavModule;
-  MatToolbarModule;
-  MatTableModule;
 }

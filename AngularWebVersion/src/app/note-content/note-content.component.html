@@ -1,0 +1,17 @@
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title> {{note?.note_name}}</mat-card-title>
+    <mat-card-subtitle>create new note below</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Title: </p>
+    <input type="text" placeholder="Note Example" [(ngModel)]='note.note_name'>
+    <p>Content: </p>
+    <input type="text" placeholder="TODO: write note's content" [(ngModel)]='note.note_value'>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="../list-note">DISCARD</button>
+    <button mat-button (click)="sendNoteToParent(note)">{{buttonName}}</button>
+  </mat-card-actions>
+</mat-card>

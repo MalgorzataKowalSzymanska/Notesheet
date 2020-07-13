@@ -1,11 +1,11 @@
 <div class="nonBorder">
-  <button mat-button routerLink="home" >home</button>
+  <mat-icon routerLink="home" >home</mat-icon>
   <button mat-button [matMenuTriggerFor]="note">note</button>
 
 
   <mat-menu class="nonBorder" xPosition="after" #note="matMenu">
-    <button mat-menu-item routerLink="note/add">add</button>
-    <button mat-menu-item routerLink="note/display">list all</button>
+    <button mat-menu-item routerLink="add-note">add</button>
+    <button mat-menu-item routerLink="list-note">list all</button>
 
 
   </mat-menu>

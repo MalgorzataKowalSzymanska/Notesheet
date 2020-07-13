@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+/AngularWebVersion/dist
 /tmp
 /out-tsc
 target/
@@ -51,3 +52,8 @@ report.20200630.141654.16344.0.001.json
 
 #file iml
 *.iml
+
+#my local project
+NoteSheetWebApp/
+
+
