@@ -1,0 +1,45 @@
+.example-card {
+  width: 80%;
+  height: 80%;
+  max-width: 400px;
+  max-height: 600px;
+  background-color: #e3f2f2;
+  margin: 1em auto;
+  min-height: 400px;
+  min-width: 230px;
+
+}
+
+.example-header-image {
+  display: block;
+  background-image: url('https://image.freepik.com/darmowe-zdjecie/tlo-baniek-mydlanych_36860-230.jpg');
+  border-radius: 2%;
+  max-width: 400px;
+  height: 150px;
+}
+mat-card-title {
+  padding: 70px 0;
+  text-align: center;
+  font-size: large;
+  color: black;
+}
+
+.mat-form-field  {
+  border: none;
+  display: block;
+  background: transparent;
+  font-size: medium;
+  color: darkblue;
+}
+.mat-input-element{
+  color: darkblue;
+}
+
+textarea{
+  font-size: 0.8em;
+  height: 3em;
+}
+.note-contetnt-actions{
+  text-align: right;
+}
+

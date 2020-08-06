@@ -9,22 +9,45 @@ import {NoteServiceService} from '../note/note-service.service';
 })
 export class ModifyNoteComponent implements OnInit {
 
-  @Input() modifyNote: Note;
-  @Output() showModifyPanelEmit = new EventEmitter<boolean>();
   buttonName = 'SAVE FROM MODIFY';
-
+  @Output() closeCard = new EventEmitter<boolean>();
+  @Output() refreshNote = new EventEmitter<Note>();
+  private modifyNote: Note = {
+    note_id: 0,
+    note_name: '',
+    note_value: '',
+  };
 
   constructor(private noteService: NoteServiceService) {
   }
 
-  ngOnInit(): void {
-    console.log(this.modifyNote);
+  get newModifyNote(): Note {
+    return this.modifyNote;
   }
 
-  saveModifiedNote(note: Note): void {
-    console.log('modified note to save: ', note);
-    this.noteService.modify(this.modifyNote.note_id, note).subscribe();
+  @Input()
+  set newModifyNote(note: Note) {
+    this.modifyNote = note;
+  }
 
-    this.showModifyPanelEmit.emit(false);
+  ngOnInit(): void {
+    this.modifyNote = {
+      note_id: 0,
+      note_name: '',
+      note_value: '',
+    };
+  }
+
+
+
+  disableCard(disabled: boolean): void {
+    console.log('discard from modify: ', disabled);
+    this.closeCard.emit(disabled);
+
+  }
+  saveModifiedNote(note: Note): void {
+    this.noteService.modify(this.modifyNote.note_id, note).subscribe();
+    this.closeCard.emit(false);
+    this.refreshNote.emit(note);
   }
 }

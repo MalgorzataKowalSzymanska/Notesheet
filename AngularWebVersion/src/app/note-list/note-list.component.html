@@ -1,36 +1,92 @@
-<p>below are all active notes</p>
-<mat-table [dataSource]="noteDataSource" clasa="mat-elevator-z8">
-  <ng-container matColumnDef="note_id">
-    <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
-    <mat-cell *matCellDef="let note">{{note.note_id}}</mat-cell>
-  </ng-container>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="cover" position="end"
+               [(opened)]="closeSidenav"
+               (opened)="displayLog('sidenav opened')"
+               (closed)="refreshNoteTable()">
+    <app-modify-note
+      [newModifyNote]="noteToModify"
+      (closeCard)="setDisabledSidenav($event)"
+      (refreshNote)="setModifiedNote($event)">
+    </app-modify-note>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+      <div class="  header-filter-panel">
+         <h1 class="header-filter-panel">Note's list</h1>
+        <div id="displayFormat">
+          <span>Display: </span>
+          <mat-radio-group>
+            <mat-radio-button #radioCard value="1">list</mat-radio-button>
+            <mat-radio-button #radioList value="2" [checked]="true">card</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <mat-table *ngIf="radioCard.checked" [dataSource]="noteDataSource">
+        <ng-container matColumnDef="note_id">
+          <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
+          <mat-cell *matCellDef="let note">{{note.note_id}}</mat-cell>
+        </ng-container>
 
-  <ng-container matColumnDef="note_name">
-    <mat-header-cell *matHeaderCellDef> note's title</mat-header-cell>
-    <mat-cell *matCellDef="let note">{{note.note_name}}</mat-cell>
-  </ng-container>
+        <ng-container matColumnDef="note_name">
+          <mat-header-cell *matHeaderCellDef> note's title</mat-header-cell>
+          <mat-cell *matCellDef="let note">{{note.note_name}}</mat-cell>
+        </ng-container>
 
-  <ng-container matColumnDef="note_value">
-    <mat-header-cell *matHeaderCellDef> note's content</mat-header-cell>
-    <mat-cell *matCellDef="let note">{{note.note_value}}</mat-cell>
-  </ng-container>
+        <ng-container matColumnDef="note_value">
+          <mat-header-cell *matHeaderCellDef> note's content</mat-header-cell>
+          <mat-cell *matCellDef="let note">{{note.note_value}}</mat-cell>
+        </ng-container>
 
-  <ng-container matColumnDef="action">
-    <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
-    <mat-cell *matCellDef="let note">
-      <button mat-button (click)="deleteNote(note.note_id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-      <button mat-button (click)="modifyNote(note)">
-      <mat-icon>edit</mat-icon>
-      </button>
-    </mat-cell>
-  </ng-container>
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+          <mat-cell *matCellDef="let note">
+            <button mat-button
+                    (click)="deleteNote(note.note_id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-button
+                    (click)="modifyNote(note); sidenav.open() ">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-</mat-table>
-<app-modify-note *ngIf="showModifyPanel" [modifyNote]="noteToModify" (showModifyPanelEmit)="showPanel($event)"  ></app-modify-note>
+      </mat-table>
+      <ul *ngIf="radioList.checked">
+        <li *ngFor="let note of noteList">
+          <mat-card class="note-cards-list">
+            <mat-card-header>
+              <div>
+                <mat-card-title class="card-title" (click)="modifyNote(note); sidenav.open() "> {{note?.note_name}}
+                </mat-card-title>
+              </div>
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>remove</mat-icon>
+                </button>
+              </mat-menu>
+            </mat-card-header>
+          </mat-card>
+        </li>
+      </ul>
+    </div>
+
+    <button id="addButton" mat-fab color="primary" routerLink="../add-note">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+
+
+
 
 

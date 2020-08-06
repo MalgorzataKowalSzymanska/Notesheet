@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NoteListComponent} from './note-list/note-list.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -14,11 +14,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {CreateNoteComponent} from './create-note/create-note.component';
-import { MatTableModule} from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoteContentComponent } from './note-content/note-content.component';
-import { ModifyNoteComponent } from './modify-note/modify-note.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoteContentComponent} from './note-content/note-content.component';
+import {ModifyNoteComponent} from './modify-note/modify-note.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 export const routingConfig: Routes = [
@@ -28,6 +33,7 @@ export const routingConfig: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
+
 
 @NgModule({
   declarations: [
@@ -51,7 +57,13 @@ export const routingConfig: Routes = [
     MatMenuModule,
     MatTableModule,
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatListModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

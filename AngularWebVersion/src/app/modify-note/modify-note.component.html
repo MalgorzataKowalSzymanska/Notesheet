@@ -1,1 +1,6 @@
-<app-note-content  [buttonName]=buttonName [note]="modifyNote" (operactionToEmit)="saveModifiedNote($event)" ></app-note-content>
+<app-note-content
+  [buttonName]=buttonName
+  [newNote]="newModifyNote"
+  (operactionToEmit)="saveModifiedNote($event)"
+  (visible)="disableCard($event)">
+</app-note-content>

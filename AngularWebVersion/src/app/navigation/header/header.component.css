@@ -1,17 +1,15 @@
-button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
-.nonBorder{
-  padding: 0;
+mat-toolbar {
   border: none;
-  background: burlywood;
+  background: lightblue;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
 }
 button.mat-menu-item{
   color: darkblue;
 }
-.is-active{
-  color: red;
+
+.head-spacer{
+  flex: 1 1 auto;
 }

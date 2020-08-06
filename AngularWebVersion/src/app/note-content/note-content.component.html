@@ -1,17 +1,24 @@
-
 <mat-card class="example-card">
-  <mat-card-header>
+  <mat-card-header class="example-header-image">
     <mat-card-title> {{note?.note_name}}</mat-card-title>
-    <mat-card-subtitle>create new note below</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p>Title: </p>
-    <input type="text" placeholder="Note Example" [(ngModel)]='note.note_name'>
-    <p>Content: </p>
-    <input type="text" placeholder="TODO: write note's content" [(ngModel)]='note.note_value'>
+    <form [formGroup]="nForm" (ngSubmit)="onSubmit()">
+      <mat-form-field id="noteName" appearance="standard">
+        <mat-label>Note's title</mat-label>
+        <input  matInput type="text" maxlength="40" placeholder="write note's title here" formControlName="title">
+      </mat-form-field>
+      <mat-form-field  id="noteContent" appearance="standard">
+        <mat-label>Content:</mat-label>
+        <textarea matInput formControlName="value" type="text" maxlength="150"
+                  placeholder="write note's contetnt here"></textarea>
+      </mat-form-field>
+      <mat-card-actions class="note-contetnt-actions">
+        <button mat-button  type="button"  (click)="discard()">DISCARD</button>
+        <button mat-button type="submit" [disabled]="!nForm.valid">{{buttonName}}</button>
+      </mat-card-actions>
+    </form>
+
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button routerLink="../list-note">DISCARD</button>
-    <button mat-button (click)="sendNoteToParent(note)">{{buttonName}}</button>
-  </mat-card-actions>
+
 </mat-card>

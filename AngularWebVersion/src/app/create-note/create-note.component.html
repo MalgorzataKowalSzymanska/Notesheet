@@ -1,1 +1,8 @@
-<app-note-content [buttonName]="buttonName" [note]="newNote" (operactionToEmit)="saveNote($event)" ></app-note-content>
+<app-note-content
+  [buttonName]="buttonName"
+  [newNote]="newNote"
+  (operactionToEmit)="saveNote($event)"
+  (visible)=" rdirectToHome($event)"
+>
+</app-note-content>
+<a id="redirectToHome" routerLink="defoultLink" ></a>

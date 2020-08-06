@@ -1,0 +1,152 @@
+app-modify-note {
+  background-color: lightblue;
+  padding-top: 50px;
+}
+
+mat-table {
+  margin: 1em;
+  padding: 30px;
+  bottom: auto;
+  background-color: #E7F1F3;
+  border-radius: 2%;
+}
+
+.mat-cell {
+  color: darkblue;
+  font-size: 1em;
+}
+
+mat-row:hover {
+  background-color: lightgray !important;
+}
+
+.mat-row:nth-child(even) {
+  background-color: #e3f2f2;
+}
+
+.mat-column-note_id {
+  flex: 0 0 3em;
+}
+
+.mat-column-action {
+  flex: 0 0 7em;
+}
+
+.mat-column-action button .material-icons {
+  padding: 0em;
+  color: darkblue;
+}
+
+#listNote {
+  float: left;
+  width: 85%;
+}
+
+.mat-drawer-container {
+  height: 90vh;
+  padding-bottom: 4em;
+}
+
+mat-sidenav {
+  position: center;
+  left: 33%;
+  top: 0;
+  right: 0;
+  width: 30%;
+  bottom: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#rightNav {
+  float: right;
+  width: 15%;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2em;
+}
+
+#addButton {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80%;
+  left: 90%;
+}
+
+.note-cards-list {
+  background-color: lightblue;
+  width: 12em;
+}
+
+.header-filter-panel {
+  display: inline-block;
+  margin-left: 2em;
+  font-family: Calibri;
+}
+
+#displayFormat {
+  display: inline-block;
+  background-color: red;
+}
+
+mat-card-header {
+  background-image: url('https://image.freepik.com/darmowe-zdjecie/tlo-baniek-mydlanych_36860-230.jpg');
+  width: 100%;
+  color: darkblue;
+  font-size: 2em;
+}
+
+mat-card-header div {
+  width: 70%;
+  margin: 0 auto;
+}
+
+mat-card-header mat-card-title:hover {
+  color: dodgerblue;
+}
+
+ul {
+  margin: 0;
+  padding: 1em 0;
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  position: relative;
+  height: auto;
+  margin: 1em;
+}
+
+.card-title {
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: center;
+
+}
+
+.mat-radio-button {
+  margin-left: 15px;
+  color: darkblue;
+
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: red !important;
+  color: red !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: red !important;
+  color: red !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(66, 134, 244, .26) !important;
+}
+
+
+

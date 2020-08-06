@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 
 import {NoteServiceService} from '../note/note-service.service';
 import {Note} from '../note/note';
+import {routingConfig} from '../app.module';
+import {string} from 'prop-types';
 
 @Component({
   selector: 'app-create-note',
@@ -25,8 +27,11 @@ export class CreateNoteComponent implements OnInit {
   }
 
   saveNote(note: Note): void {
-    console.log('note do save', note);
     this.noteService.post(note).subscribe();
   }
+  rdirectToHome(closeCard: boolean): void {
+    console.log('close the window');
+    document.getElementById('redirectToHome').click();
 
+  }
 }

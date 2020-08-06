@@ -14,7 +14,8 @@ export class NoteListComponent implements OnInit {
   noteList: Note[];
   noteDataSource = new MatTableDataSource<Note>(this.noteList);
   displayedColumns: string[] = ['note_id', 'note_name', 'note_value', 'action'];
-  showModifyPanel = false;
+  closeSidenav: boolean;
+  modifiedNote: Note;
 
   constructor(private noteService: NoteServiceService) {
   }
@@ -37,15 +38,30 @@ export class NoteListComponent implements OnInit {
     });
   }
 
-
-  modifyNote(note: Note): void {
-    this.showPanel(true);
-    this.noteToModify = note;
-    console.log(this.noteToModify);
+  setDisabledSidenav(disabled: boolean): void {
+    this.closeSidenav = disabled;
   }
 
-  showPanel(agreed: boolean): void {
-    this.showModifyPanel = agreed;
+  modifyNote(note: Note): void {
+    this.noteToModify = note;
+  }
+
+  displayLog(message: string): void {
+    console.log(message);
+  }
+
+  setModifiedNote(note: Note): void {
+    this.modifiedNote = note;
+  }
+
+  refreshNoteTable(): void {
+    console.log('note\'s value after modify:', this.modifiedNote);
+    for (let i = 0; i < this.noteList.length; i++) {
+      if (this.noteList[i].note_id === this.modifiedNote.note_id) {
+        this.noteList[i] = this.modifiedNote;
+        this.noteDataSource = new MatTableDataSource<Note>(this.noteList);
+      }
+    }
   }
 
 }

@@ -1,25 +1,12 @@
-<div class="nonBorder">
-  <mat-icon routerLink="home" >home</mat-icon>
-  <button mat-button [matMenuTriggerFor]="note">note</button>
+<mat-toolbar>
+  <button mat-button [matMenuTriggerFor]="note">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{appName}}</span>
+  <span class="head-spacer"></span>
 
-
-  <mat-menu class="nonBorder" xPosition="after" #note="matMenu">
+  <mat-menu  xPosition="after" #note="matMenu">
     <button mat-menu-item routerLink="add-note">add</button>
     <button mat-menu-item routerLink="list-note">list all</button>
-
-
   </mat-menu>
-
-  <mat-menu class="nonBorder" xPosition="before" #newSettings="matMenu">
-    <button mat-menu-item>add new sett</button>
-    <button mat-menu-item>create new sett</button>
-
-  </mat-menu>
-
-  <mat-menu class="nonBorder" xPosition="before" #oldSettings="matMenu">
-    <button mat-menu-item>remove old sett</button>
-    <button mat-menu-item>update old sett</button>
-
-  </mat-menu>
-
-</div>
+</mat-toolbar>
