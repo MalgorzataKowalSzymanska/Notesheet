@@ -11,8 +11,8 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div>
-      <div class="  header-filter-panel">
-         <h1 class="header-filter-panel">Note's list</h1>
+      <div>
+        <h1 class="header-filter-panel">Note's list</h1>
         <div id="displayFormat">
           <span>Display: </span>
           <mat-radio-group>
@@ -55,7 +55,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
       </mat-table>
-      <ul *ngIf="radioList.checked">
+      <div class="flex-list-container" *ngIf="radioList.checked">
         <li *ngFor="let note of noteList">
           <mat-card class="note-cards-list">
             <mat-card-header>
@@ -74,12 +74,14 @@
             </mat-card-header>
           </mat-card>
         </li>
-      </ul>
+      </div>
+      <button id="addButton" mat-fab color="primary" routerLink="../add-note">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button>odd</button>
     </div>
 
-    <button id="addButton" mat-fab color="primary" routerLink="../add-note">
-      <mat-icon>add</mat-icon>
-    </button>
+
   </mat-sidenav-content>
 
 </mat-sidenav-container>

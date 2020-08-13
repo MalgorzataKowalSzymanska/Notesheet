@@ -37,10 +37,7 @@ mat-row:hover {
   color: darkblue;
 }
 
-#listNote {
-  float: left;
-  width: 85%;
-}
+
 
 .mat-drawer-container {
   height: 90vh;
@@ -58,9 +55,11 @@ mat-sidenav {
   padding-bottom: 30px;
 }
 
-#rightNav {
-  float: right;
-  width: 15%;
+.flex-list-container{
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: inherit;
 }
 
 .sticky {
@@ -72,8 +71,8 @@ mat-sidenav {
 #addButton {
   position: -webkit-sticky;
   position: sticky;
-  top: 80%;
-  left: 90%;
+  top: 10%;
+  left: 80%;
 }
 
 .note-cards-list {
@@ -108,11 +107,7 @@ mat-card-header mat-card-title:hover {
   color: dodgerblue;
 }
 
-ul {
-  margin: 0;
-  padding: 1em 0;
-  text-align: center;
-}
+
 
 li {
   display: inline-block;
